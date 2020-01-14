@@ -7,7 +7,8 @@
     "dev": "NODE_ENV=develop next",
     "build:develop": "NODE_ENV=develop next build",
     "build:production": "NODE_ENV=production next build",
-    "start": "next start"
+    "start": "next start",
+    "generate": "next export"
   },
   "dependencies": {
     "@types/next": "^9.0.0",
