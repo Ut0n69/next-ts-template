@@ -7,6 +7,8 @@ const top: NextPage = () => {
   const [item, setItem] = useState();
   let inputItem = '';
 
+  console.log('env: ', process.env.apiRoot);
+
   return (
     <>
       <Title>Item</Title>

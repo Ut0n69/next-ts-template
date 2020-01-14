@@ -4,8 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "next",
-    "build": "next build",
+    "dev": "NODE_ENV=develop next",
+    "build:develop": "NODE_ENV=develop next build",
+    "build:production": "NODE_ENV=production next build",
     "start": "next start"
   },
   "dependencies": {

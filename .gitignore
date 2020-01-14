@@ -1,2 +1,4 @@
 node_modules
 .next
+env.develop.js
+env.production.js
