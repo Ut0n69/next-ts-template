@@ -4,19 +4,16 @@ import styled from 'styled-components';
 import { space } from '../assets/style/constValues';
 import Link from 'next/link';
 
-const Index: NextPage = () => {
+const About: NextPage = () => {
   const [item, setItem] = useState();
   let inputItem = '';
 
-  console.log('env: ', process.env.apiRoot);
-
   return (
     <>
-      <Title>Item</Title>
-      <Link href="/about">
+      <Title>About</Title>
+      <Link href="/">
         <a>Top</a>
       </Link>
-
       {item && <p>{item}</p>}
       <form
         onSubmit={e => {
@@ -42,4 +39,4 @@ const Title = styled.div`
   margin: ${space.level1};
 `;
 
-export default Index;
+export default About;
