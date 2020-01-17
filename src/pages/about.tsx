@@ -1,12 +1,17 @@
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Add, GetAllTodos } from '../store/todo/';
 import { NextPage } from 'next';
 import styled from 'styled-components';
 import { space } from '../assets/style/constValues';
 import Link from 'next/link';
 
 const About: NextPage = () => {
-  const [item, setItem] = useState();
+  const [item] = useState();
   let inputItem = '';
+
+  const dispatch = useDispatch();
+  const todos = useSelector(GetAllTodos);
 
   return (
     <>
@@ -18,7 +23,7 @@ const About: NextPage = () => {
       <form
         onSubmit={e => {
           e.preventDefault();
-          setItem(inputItem);
+          dispatch(Add({ title: inputItem }));
         }}
       >
         <input
@@ -30,6 +35,9 @@ const About: NextPage = () => {
         />
         <button type="submit">Add</button>
       </form>
+      {todos.map((todo, index) => (
+        <p key={index}>{todo.title}</p>
+      ))}
     </>
   );
 };
