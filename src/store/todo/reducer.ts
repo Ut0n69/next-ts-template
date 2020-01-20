@@ -1,9 +1,9 @@
 import { Reducer } from 'redux';
 import { isType } from 'typescript-fsa';
-import { produce } from 'immer'; // これなしでやりたい
+import { produce } from 'immer';
 
-import { Todo } from '../index';
-import { Add } from '../actions/index';
+import { Todo } from './index';
+import { Add } from './action';
 
 const initialState: Todo[] = [
   {
