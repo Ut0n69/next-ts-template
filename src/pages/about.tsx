@@ -5,6 +5,7 @@ import { NextPage } from 'next';
 import styled from 'styled-components';
 import { space } from '../assets/style/constValues';
 import Link from 'next/link';
+import { NetworkService, HTTPMethod } from '../services/NetworkService';
 
 const About: NextPage = () => {
   const [item] = useState();
@@ -12,6 +13,23 @@ const About: NextPage = () => {
 
   const dispatch = useDispatch();
   const todos = useSelector(GetAllTodos);
+
+  const aaa = async () => {
+    const getMemberData = new NetworkService({
+      httpMethod: HTTPMethod.GET
+    });
+    const result = await getMemberData.execute();
+    console.log(result);
+  };
+
+  const bbb = async () => {
+    const getMemberData = new NetworkService({
+      httpMethod: HTTPMethod.POST,
+      payload: { name: 'asdfasdf', age: 29 }
+    });
+    const result = await getMemberData.execute();
+    console.log(result);
+  };
 
   return (
     <>
@@ -38,6 +56,20 @@ const About: NextPage = () => {
       {todos.map((todo, index) => (
         <p key={index}>{todo.title}</p>
       ))}
+      <button
+        onClick={() => {
+          aaa();
+        }}
+      >
+        GETTTTTTTTTTTTTTT
+      </button>
+      <button
+        onClick={() => {
+          bbb();
+        }}
+      >
+        POSTTTTTTTTTTTTTTT
+      </button>
     </>
   );
 };

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AddFriend, GetFriends } from '../store/friend/';
 import { NextPage } from 'next';
@@ -13,15 +13,17 @@ const Friends: NextPage = () => {
   const dispatch = useDispatch();
   const friends = useSelector(GetFriends);
 
-  const onSubmit = () => {
+  useEffect(() => {
     dispatch(
       AddFriend({
         name: inputItem,
         age: 31
       })
     );
+  }, []);
 
-    inputItem = '';
+  const onSubmit = () => {
+    console.log(inputItem);
   };
 
   return (
@@ -46,6 +48,43 @@ const Friends: NextPage = () => {
         />
         <button type="submit">Add</button>
       </form>
+      <button
+        onClick={async () => {
+          const res = await fetch('https://express-simple-boilerplate.now.sh', {
+            method: 'GET'
+          });
+          const data = await res.json();
+
+          console.log(data);
+        }}
+      >
+        GET
+      </button>
+      <button
+        onClick={async () => {
+          const v = { name: 'asdfasdf', age: 29 };
+          const res = await fetch('https://express-simple-boilerplate.now.sh', {
+            method: 'POST',
+            body: JSON.stringify(v),
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          });
+          const data = await res.json();
+
+          console.log(data);
+        }}
+      >
+        POST
+      </button>
+      <button
+        onClick={() => {
+          console.log('fe');
+        }}
+      >
+        PUT
+      </button>
+
       {friends.map((friend, index) => (
         <p key={index}>{friend.name}</p>
       ))}
