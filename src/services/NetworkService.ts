@@ -56,12 +56,12 @@ export class NetworkService {
     }
   }
 
-  public execute() {
+  public async execute() {
     switch (this.request.httpMethod) {
       case HTTPMethod.GET:
-        return this.get();
+        return await this.get();
       case HTTPMethod.POST:
-        return this.post();
+        return await this.post();
     }
   }
 }

@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { AddFriend, GetFriends } from '../store/friend/';
+import { AddFriend, GetFriends, Friend } from '../store/friend/';
 import { NextPage } from 'next';
 import styled from 'styled-components';
 import { space } from '../assets/style/constValues';
 import Link from 'next/link';
+import { NetworkService, HTTPMethod } from '../services/NetworkService';
 
 const Friends: NextPage = () => {
   const [item] = useState();
@@ -13,13 +14,18 @@ const Friends: NextPage = () => {
   const dispatch = useDispatch();
   const friends = useSelector(GetFriends);
 
+  const getMember = async () => {
+    const fetchMember = new NetworkService({
+      httpMethod: HTTPMethod.GET
+    });
+    const result = await fetchMember.execute();
+    result.data.friends.map((friend: Friend) => {
+      dispatch(AddFriend(friend));
+    });
+  };
+
   useEffect(() => {
-    dispatch(
-      AddFriend({
-        name: inputItem,
-        age: 31
-      })
-    );
+    getMember();
   }, []);
 
   const onSubmit = () => {
@@ -48,46 +54,7 @@ const Friends: NextPage = () => {
         />
         <button type="submit">Add</button>
       </form>
-      <button
-        onClick={async () => {
-          const res = await fetch('https://express-simple-boilerplate.now.sh', {
-            method: 'GET'
-          });
-          const data = await res.json();
-
-          console.log(data);
-        }}
-      >
-        GET
-      </button>
-      <button
-        onClick={async () => {
-          const v = { name: 'asdfasdf', age: 29 };
-          const res = await fetch('https://express-simple-boilerplate.now.sh', {
-            method: 'POST',
-            body: JSON.stringify(v),
-            headers: {
-              'Content-Type': 'application/json'
-            }
-          });
-          const data = await res.json();
-
-          console.log(data);
-        }}
-      >
-        POST
-      </button>
-      <button
-        onClick={() => {
-          console.log('fe');
-        }}
-      >
-        PUT
-      </button>
-
-      {friends.map((friend, index) => (
-        <p key={index}>{friend.name}</p>
-      ))}
+      {friends && friends.length ? friends.map((friend, index) => <p key={index}>{friend.name}</p>) : <p>Loading...</p>}
     </>
   );
 };
