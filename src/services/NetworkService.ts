@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { ErrorService } from './ErrorService';
 
 export enum HTTPMethod {
   GET = 'GET',
@@ -36,8 +37,8 @@ export class NetworkService {
       });
       return await response.data;
     } catch (e) {
-      // TODO: errorService
-      console.error(e);
+      const errorService = new ErrorService(e);
+      errorService.showError();
     }
   }
 
@@ -51,8 +52,8 @@ export class NetworkService {
       });
       return await response.data;
     } catch (e) {
-      // TODO: errorService
-      console.error(e);
+      const errorService = new ErrorService(e);
+      errorService.showError();
     }
   }
 

@@ -8,9 +8,6 @@ import Link from 'next/link';
 import { NetworkService, HTTPMethod } from '../services/NetworkService';
 
 const Friends: NextPage = () => {
-  const [item] = useState();
-  let inputItem = '';
-
   const dispatch = useDispatch();
   const friends = useSelector(GetFriends);
 
@@ -19,18 +16,15 @@ const Friends: NextPage = () => {
       httpMethod: HTTPMethod.GET
     });
     const result = await fetchMember.execute();
-    result.data.friends.map((friend: Friend) => {
-      dispatch(AddFriend(friend));
-    });
+    result &&
+      result.data.friends.map((friend: Friend) => {
+        dispatch(AddFriend(friend));
+      });
   };
 
   useEffect(() => {
     getMember();
   }, []);
-
-  const onSubmit = () => {
-    console.log(inputItem);
-  };
 
   return (
     <>
@@ -38,22 +32,6 @@ const Friends: NextPage = () => {
       <Link href="/">
         <a>Top</a>
       </Link>
-      {item && <p>{item}</p>}
-      <form
-        onSubmit={e => {
-          e.preventDefault();
-          onSubmit();
-        }}
-      >
-        <input
-          type="text"
-          name="item"
-          onChange={e => {
-            inputItem = e.target.value;
-          }}
-        />
-        <button type="submit">Add</button>
-      </form>
       {friends && friends.length ? friends.map((friend, index) => <p key={index}>{friend.name}</p>) : <p>Loading...</p>}
     </>
   );
