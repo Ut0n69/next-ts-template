@@ -38,7 +38,6 @@ const Index: NextPage = () => {
 };
 
 const Title = styled.div`
-  font-size: 20px;
   margin: ${space.level1};
 `;
 
