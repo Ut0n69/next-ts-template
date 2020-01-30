@@ -13,7 +13,7 @@ type Request = {
   baseURL?: string;
   api?: string;
   httpMethod?: string;
-  payload?: any;
+  payload?: object;
   params?: undefined; // TODO: 未実装
 };
 

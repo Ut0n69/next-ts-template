@@ -1,8 +1,8 @@
 export class ErrorService {
-  private errorMessages: any;
+  private errorMessages: string;
 
-  constructor(e?: any) {
-    this.errorMessages = e || '';
+  constructor(e?: string) {
+    this.errorMessages = e || 'Something went wrong...';
   }
 
   showError() {

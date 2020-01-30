@@ -23,7 +23,13 @@ module.exports = {
       "jsx": true
     }
   },
+  settings: {
+    react: {
+        version: require('./package.json').dependencies.react,
+    },
+  },
   rules: {
+    "@typescript-eslint/no-non-null-assertion": 0,
     "@typescript-eslint/no-unused-vars": 0,
     "@typescript-eslint/explicit-function-return-type": 0,
     "import/prefer-default-export": 0,
