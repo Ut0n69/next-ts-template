@@ -1,10 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AddFriend, GetFriends, Friend } from '../store/friend/';
 import { NextPage } from 'next';
 import styled from 'styled-components';
 import { space } from '../assets/style/constValues';
-import Link from 'next/link';
 import { NetworkService, HTTPMethod } from '../services/NetworkService';
 
 const Friends: NextPage = () => {
@@ -23,21 +22,18 @@ const Friends: NextPage = () => {
   };
 
   useEffect(() => {
-    getMember();
+    if (friends && !friends.length) getMember();
   }, []);
 
   return (
     <>
       <Title>Friend</Title>
-      <Link href="/">
-        <a>Top</a>
-      </Link>
       {friends && friends.length ? friends.map((friend, index) => <p key={index}>{friend.name}</p>) : <p>Loading...</p>}
     </>
   );
 };
 
-const Title = styled.div`
+const Title = styled.h1`
   margin: ${space.level1};
 `;
 

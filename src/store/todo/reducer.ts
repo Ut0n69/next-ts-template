@@ -7,7 +7,7 @@ import { Add } from './action';
 
 const initialState: Todo[] = [
   {
-    title: 'few'
+    title: 'Learn Vue.js'
   }
 ];
 

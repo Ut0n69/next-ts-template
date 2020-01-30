@@ -2,22 +2,14 @@ import { useState } from 'react';
 import { NextPage } from 'next';
 import styled from 'styled-components';
 import { space } from '../assets/style/constValues';
-import Link from 'next/link';
 
 const Index: NextPage = () => {
   const [item, setItem] = useState();
   let inputItem = '';
 
-  console.log('env: ', process.env.apiRoot);
-
   return (
     <>
-      <Title>Item</Title>
-      <Link href="/about">
-        <a>Top</a>
-      </Link>
-
-      {item && <p>{item}</p>}
+      <Title>Top</Title>
       <form
         onSubmit={e => {
           e.preventDefault();
@@ -33,11 +25,12 @@ const Index: NextPage = () => {
         />
         <button type="submit">Add</button>
       </form>
+      {item && <p>{item}</p>}
     </>
   );
 };
 
-const Title = styled.div`
+const Title = styled.h1`
   margin: ${space.level1};
 `;
 

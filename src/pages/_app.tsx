@@ -4,6 +4,7 @@ import { GlobalStyle } from '../assets/style/globalStyle';
 import { Provider } from 'react-redux';
 import { Store } from '../store/';
 import Head from 'next/head';
+import Menu from '../components/Menu';
 
 const title = 'Next.js Sample';
 const description = 'This is a dscription.';
@@ -40,6 +41,7 @@ export default class extends App {
           <meta property="og:locale" content="ja_JP" />
         </Head>
         <Provider store={Store}>
+          <Menu />
           <Component {...pageProps} />
           <GlobalStyle />
         </Provider>

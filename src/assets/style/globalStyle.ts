@@ -15,6 +15,10 @@ export const GlobalStyle = createGlobalStyle`
     outline: none;
   }
 
+  a:hover {
+    cursor: pointer;
+  }
+
   h1 {
     font-size: 6vw;
   }
