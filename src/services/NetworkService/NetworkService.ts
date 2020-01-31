@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { ErrorService } from './ErrorService';
+import { ErrorService } from '../ErrorService/ErrorService';
 
 export enum HTTPMethod {
   GET = 'GET',

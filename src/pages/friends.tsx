@@ -4,7 +4,7 @@ import { AddFriend, GetFriends, Friend } from '../store/friend/';
 import { NextPage } from 'next';
 import styled from 'styled-components';
 import { space } from '../assets/style/constValues';
-import { NetworkService, HTTPMethod } from '../services/NetworkService';
+import { NetworkService, HTTPMethod } from '../services/NetworkService/NetworkService';
 
 const Friends: NextPage = () => {
   const dispatch = useDispatch();
