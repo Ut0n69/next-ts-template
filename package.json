@@ -12,7 +12,8 @@
     "lint": "eslint --ext .tsx,.ts src --fix",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:ci": "jest && codecov"
+    "test:ci": "jest && codecov",
+    "precommit": "npm run lint && npm run test:ci"
   },
   "dependencies": {
     "@types/next": "^9.0.0",
@@ -42,6 +43,7 @@
     "eslint-config-prettier": "^6.9.0",
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "^7.17.0",
+    "husky": "^4.2.1",
     "jest": "^25.1.0",
     "prettier": "^1.19.1",
     "ts-jest": "^25.1.0",
