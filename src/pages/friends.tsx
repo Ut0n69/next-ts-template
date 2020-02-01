@@ -28,7 +28,11 @@ const Friends: NextPage = () => {
   return (
     <>
       <Title>Friend</Title>
-      {friends && friends.length ? friends.map((friend, index) => <p key={index}>{friend.name}</p>) : <p>Loading...</p>}
+      {friends && friends.length ? (
+        friends.map((friend, index) => <p key={index}>{friend.name}</p>)
+      ) : (
+        <h2>Loading...</h2>
+      )}
     </>
   );
 };
