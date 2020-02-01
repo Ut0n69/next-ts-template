@@ -12,8 +12,7 @@
     "lint": "eslint --ext .tsx,.ts src --fix",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:ci": "jest && codecov",
-    "precommit": "npm run lint && npm run test:ci"
+    "test:ci": "jest && codecov"
   },
   "dependencies": {
     "@types/next": "^9.0.0",
