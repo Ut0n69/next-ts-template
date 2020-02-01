@@ -1,30 +1,46 @@
 import { NetworkService, HTTPMethod } from './NetworkService';
 
 describe('NetworkService', () => {
-  const mock = [
-    {
-      id: 1,
-      name: 'Ross',
-      age: 30
-    },
-    {
-      id: 2,
-      name: 'Rachel',
-      age: 27
-    }
-  ];
-
-  test('member data should be response from member api', async () => {
+  test('should fetch member data from member api without url', async () => {
     const fetchMember = new NetworkService({
       httpMethod: HTTPMethod.GET
     });
     const result = await fetchMember.execute();
     const memberData = await result.data.friends;
 
-    console.log(memberData);
+    expect(memberData).toEqual([
+      {
+        id: 1,
+        name: 'Ross',
+        age: 30
+      },
+      {
+        id: 2,
+        name: 'Rachel',
+        age: 27
+      }
+    ]);
+  });
 
-    expect(memberData).toEqual(mock);
+  test('should fetch member data from member api with url', async () => {
+    const fetchMember = new NetworkService({
+      httpMethod: HTTPMethod.GET,
+      url: 'https://express-simple-boilerplate.now.sh'
+    });
+    const result = await fetchMember.execute();
+    const memberData = await result.data.friends;
+
+    expect(memberData).toEqual([
+      {
+        id: 1,
+        name: 'Ross',
+        age: 30
+      },
+      {
+        id: 2,
+        name: 'Rachel',
+        age: 27
+      }
+    ]);
   });
 });
-
-// TODO: POST
