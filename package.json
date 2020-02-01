@@ -11,7 +11,8 @@
     "generate": "next export",
     "lint": "eslint --ext .tsx,.ts src --fix",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "test:ci": "jest && codecov"
   },
   "dependencies": {
     "@types/next": "^9.0.0",
@@ -36,6 +37,7 @@
     "@types/node": "^13.1.6",
     "@typescript-eslint/eslint-plugin": "^2.15.0",
     "@typescript-eslint/parser": "^2.15.0",
+    "codecov": "^3.6.4",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.9.0",
     "eslint-plugin-prettier": "^3.1.2",

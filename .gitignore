@@ -4,3 +4,4 @@ env.develop.js
 env.production.js
 out
 .DS_Store
+coverage

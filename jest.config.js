@@ -4,5 +4,6 @@ module.exports = {
   transform: {
     '^.+\\.(ts|tsx)$': 'ts-jest'
   },
-  setupFiles: ['<rootDir>/.jest/setup.js']
+  setupFiles: ['<rootDir>/.jest/setup.js'],
+  collectCoverage: true
 };
