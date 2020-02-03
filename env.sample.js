@@ -14,5 +14,5 @@ module.exports = {
     audience: 'xxxxxxxxxxxxxxxxxxxx',
     connection: 'xxxxxxxxxxxxxxxxxxx'
   },
-  apiRoot: 'https://xxxx.com/'
+  apiRoot: 'https://express-simple-boilerplate.now.sh'
 };
