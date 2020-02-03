@@ -1,5 +1,5 @@
 import { actionCreatorFactory } from 'typescript-fsa';
-import { Todo } from './index';
+import { Todo } from '../index';
 
 const actionCreator = actionCreatorFactory('TODO');
 

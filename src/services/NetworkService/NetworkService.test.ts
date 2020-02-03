@@ -1,7 +1,7 @@
 import { NetworkService, HTTPMethod } from './NetworkService';
 
 describe('NetworkService', () => {
-  test('should fetch member data from member api without url', async () => {
+  test.skip('should fetch member data from member api without url', async () => {
     const fetchMember = new NetworkService({
       httpMethod: HTTPMethod.GET
     });
@@ -22,7 +22,7 @@ describe('NetworkService', () => {
     ]);
   });
 
-  test('should fetch member data from member api with url', async () => {
+  test.skip('should fetch member data from member api with url', async () => {
     const fetchMember = new NetworkService({
       httpMethod: HTTPMethod.GET,
       url: 'https://express-simple-boilerplate.now.sh'

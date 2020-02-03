@@ -2,7 +2,7 @@ export type Todo = {
   title: string;
 };
 
-export * from './action';
-export * from './selector';
+export * from './action/action';
+export * from './selector/selector';
 
-export { default } from './reducer';
+export { default } from './reducer/reducer';

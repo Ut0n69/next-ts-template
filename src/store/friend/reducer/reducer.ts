@@ -2,8 +2,8 @@ import { Reducer } from 'redux';
 import { isType } from 'typescript-fsa';
 import { produce } from 'immer';
 
-import { Friend } from './index';
-import { AddFriend } from './action';
+import { Friend } from '../index';
+import { AddFriend } from '../action/action';
 
 const initialState: Friend[] = [];
 
