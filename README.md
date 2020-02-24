@@ -9,8 +9,8 @@
 $ git clone git@github.com:yutosagawa/next-ts-template.git
 $ cd next-ts-template
 $ cp env.sample.js env.develop.js
-$ npm i
-$ npm run dev
+$ yarn
+$ yarn dev
 ```
 
 # Feature
